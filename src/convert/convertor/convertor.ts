@@ -22,6 +22,10 @@ export class Convertor {
     public to(unit: Unit) {
         const currentFactor = findValueByLeafName(unitConversionMap, this.unit);
         const targetFactor = findValueByLeafName(unitConversionMap, unit);
+
+        if (currentFactor === undefined) throw new Error(`Unit ${this.unit} is not supported`);
+        if (targetFactor === undefined) throw new Error(`Unit ${unit} is not supported`);
+
         const conversionFactor = currentFactor / targetFactor;
 
         this.value = this.value * conversionFactor;
@@ -34,7 +38,7 @@ export class Convertor {
 
 // TODO: move this to some utils
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function findValueByLeafName(obj: Record<string, any>, leafName: string) {
+function findValueByLeafName(obj: Record<string, any>, leafName: string): number | undefined {
     for (const key in obj) {
         if (typeof obj[key] === 'object') {
             const result = findValueByLeafName(obj[key], leafName);

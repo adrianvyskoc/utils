@@ -2,7 +2,7 @@ import { Unit, unitConversionMap } from './data';
 
 /**
  * Class that is converting units to different units
- * @since 1.0.1
+ * @since 1.0.2
  */
 export class Convertor {
     public value: number;

@@ -16,3 +16,6 @@ export { rgbToHex, hexToRgb } from './convert/color';
 
 // - TEMPERATURE
 export { celsiusToFahrenheit, fahrenheitToCelsius, fahrenheitToKelvin, kelvinToFahrenheit, celsiusToKelvin, kelvinToCelsius } from './convert/temperature';
+
+// - CONVERTOR
+export { Convertor } from './convert/convertor';
